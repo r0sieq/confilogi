@@ -1,0 +1,78 @@
+.faq > .questions > .question {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+}
+
+.faq > .questions > .question > .top-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq > .questions > .question > .top-bar:hover > .title {
+    color: var(--accent-color);
+}
+
+.faq > .questions > .question > .top-bar > .title {
+    flex-grow: 1;
+    font-size: 18px;
+    transition: 200ms ease-in-out;
+    padding-block: 22px;
+}
+
+.faq > .questions > .question > .top-bar > button {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin: 20px;
+    margin-block: auto;
+    transition: transform 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.faq > .questions > .question[data-extended="true"] > .top-bar > button {
+    transform: rotate(180deg);
+}
+
+.faq > .questions > .question > .top-bar > button path {
+    transition: 200ms ease-in-out;
+}
+
+.faq > .questions > .question[data-extended="true"] > .top-bar > button path {
+    stroke: var(--accent-color)
+}
+
+.faq > .questions > .question > p {
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: 300ms ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    font-size: 17px;
+    line-height: 2em;
+    color: #555;
+}
+
+.faq > .questions > .question[data-extended="true"] > p {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    max-height: 500px;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .faq > .questions > .question > .top-bar > .title {
+        font-size: 15px;
+        padding-block: 22px;
+    }
+    .faq > .questions > .question > .top-bar > button {
+        aspect-ratio: unset;
+        margin: 0;
+        padding: 0;
+    }
+}

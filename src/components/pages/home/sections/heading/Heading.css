@@ -1,0 +1,124 @@
+main.home > .heading {
+    padding-right: 55px;
+}
+
+.heading > .content {
+    display: grid;
+    grid-auto-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    grid-template-areas: 
+        "null image"
+        "title image"
+        "description image"
+        "buttons image"
+        "null2 image"
+    ;
+    gap: 55px;
+    row-gap: 0; 
+}
+
+.heading > .content .image-container {
+    position: relative;
+}
+
+.heading > .content .image-container::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    width: 100vw;
+    height: 350px;
+    z-index: -100;
+    left: 30%;
+    border-bottom-left-radius: 50vw;
+    border-top-left-radius: 50vw;
+    bottom: -25px;
+}
+@media (max-width: 1400px) and (min-width: 770px) {
+
+    .heading > .content {
+        gap: 5vw;
+        row-gap: 0;
+    }
+
+    .heading > .content .buttons {
+        flex-wrap: wrap;
+        width: fit-content;
+    }
+
+    .heading > .content > .image-container::before {
+        width: 150vw;
+        height: 80%;
+        z-index: -100;
+        left: 15%;
+        border-bottom-right-radius: 50vw;
+        border-top-right-radius: 50vw;
+        top: 55px;
+    }
+
+}
+@media (max-width: 770px){
+
+    main.home > .heading {
+        padding-top: 30px;
+        padding-right: 35px;
+        box-sizing: border-box;
+    }
+
+    .heading > .content {
+        display: flex;
+        flex-direction: column;
+        grid-auto-columns: 100vw;
+        grid-template-areas: 
+            "image"
+            "title"
+            "description"
+            "buttons"
+        ;
+        align-items: center;
+        text-align: center;
+    }
+
+    .heading > .content .image-container {
+        width: 90vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 420px;
+        margin-bottom: 45px;
+    }
+
+    .heading > .content .image-container img {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .heading > .content button.primary,
+    .heading > .content button.secondary {
+        padding-inline: 0;
+        flex-grow: 1;
+    }
+
+    .heading > .content img {
+        min-width: 350px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .heading > .content > .buttons {
+        width: 100%;
+    }
+    .heading > .content > p {
+        font-size: 15px;
+    }
+
+    .heading > .content > .image-container::before {
+        width: 150vw;
+        height: 80%;
+        z-index: -100;
+        left: 15%;
+        border-bottom-right-radius: 50vw;
+        border-top-right-radius: 50vw;
+        top: 55px;
+    }
+    
+}

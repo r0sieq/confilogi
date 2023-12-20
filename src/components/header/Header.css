@@ -1,0 +1,107 @@
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    place-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    padding-inline: max(calc((100vw - (1440px))/2 + 165px), 165px);
+}
+
+header img {
+    margin-block: auto;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+}
+
+@media (max-width: 1400px) {
+    header {
+        padding-inline: 5vw;
+    }
+}
+
+@media (max-width: 770px){
+
+    body:has(header[data-active="true"]) {
+        overflow: hidden;
+    }
+
+    header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        max-height: var(--header-height-mobile);
+        padding-inline: 30px;
+        position: relative;
+        z-index: 1000;
+        transition: 200ms ease-in-out;
+    }
+
+    header[data-active="true"]{
+        background-color: var(--neutral-dark-transparent);
+    }
+
+    header .min svg * {
+        transition: 200ms ease-in-out;
+    }
+
+    header[data-active="true"] .min svg > g path { fill: white; }
+    header[data-active="true"] .min svg g > circle { fill: white; }
+    header[data-active="true"] .min svg > g > g path { fill: var(--neutral-dark); }
+
+    header .min {
+        display: flex;
+        flex-direction: row;
+        place-content: space-between;
+        align-items: center;
+        width: 100%;
+        min-height: var(--header-height-mobile);
+        box-sizing: border-box;
+        flex-shrink: 0;
+        border-bottom: 1px solid #eeeeee30;
+    }
+
+    header .min button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header nav {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background-color: transparent;
+        padding-inline: 30px;
+        height: 0;
+        box-sizing: border-box;
+        gap: 0;
+        transition: 200ms ease-in-out;
+    }
+
+    header[data-active="true"] nav {
+        height: calc(100dvh - var(--header-height-mobile));
+        background-color: var(--neutral-dark-transparent);
+    }
+
+    header nav .socials {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        margin-bottom: 40px;
+    }
+}

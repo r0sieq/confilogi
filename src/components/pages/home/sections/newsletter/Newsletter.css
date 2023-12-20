@@ -1,0 +1,156 @@
+main.home > .newsletter {
+    margin-bottom: 0;
+    min-height: unset;
+    max-width: unset;
+    padding-block: 75px;
+    background-color: var(--main-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.newsletter > .counter {
+    letter-spacing: 5px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.newsletter > h2 {
+    white-space: wrap;
+    text-wrap: pretty;
+    text-align: center;
+    width: 450px;
+}
+
+.newsletter > form {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 450px;
+}
+
+.newsletter > form > button.primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.newsletter > form > button.primary:hover {
+    background-color: white;
+    color: var(--accent-color);
+}
+
+.newsletter > form > .input-container {
+    position: relative;
+    flex-grow: 1;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: var(--accent-color);
+}
+
+.newsletter > form > .input-container[data-error="false"] {
+    background-color: transparent;
+}
+
+.newsletter > form > .input-container > input {
+    border-radius: 5px;
+    border: 2px solid var(--accent-color);
+    outline: none;
+    box-sizing: border-box;
+    padding-inline: 15px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 5;
+}
+.newsletter > form > .input-container[data-error="false"] > input {
+    border-color: white;
+}
+
+.newsletter > form > .input-container > input::placeholder {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.newsletter > form > .input-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-image: url(../../../../../assets/icon-error.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 200ms ease-in-out;
+    opacity: 1;
+}
+
+.newsletter > form > .input-container::before {
+    z-index: 0;
+    position: absolute;
+    content: attr(data-error);
+    background-color: var(--accent-color);
+    top: 100%;
+    padding: 7px;
+    box-sizing: border-box;
+    left: 0;
+    width: 100%;
+    font-size: 10px;
+    font-style: italic;
+    opacity: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.newsletter > form > .input-container[data-error="false"]::before,
+.newsletter > form > .input-container[data-error="false"]::after {
+    opacity: 0;
+}
+
+@media (max-width: 770px) {
+    main.home > .newsletter {
+        padding-block: 70px;
+        background-color: var(--main-color);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+    }
+    .newsletter > h2 {
+        white-space: wrap;
+        text-wrap: pretty;
+        text-align: center;
+        width: 100%;
+    }
+    .newsletter > form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .newsletter > form > .input-container {
+        margin-bottom: 25px;
+    }
+    
+    .newsletter > form > .input-container[data-error="false"] {
+        background-color: transparent;
+        margin-bottom: 0px;
+    }
+
+    .newsletter > form > .input-container > input {
+        border-radius: 5px;
+        border: 2px solid var(--accent-color);
+        outline: none;
+        box-sizing: border-box;
+        padding-inline: 15px;
+        padding-block: 14px;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+    }
+}

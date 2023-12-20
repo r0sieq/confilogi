@@ -1,0 +1,183 @@
+main.home > .features {
+    margin-bottom: 80px;
+}
+
+.features > .select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.features > .select p {
+    width: 530px;
+    line-height: 1.65em;
+}
+
+.features > .select > .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    border-bottom: 1px solid #ddd;
+    width: 720px;
+}
+
+.features > .select > .buttons button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 33%;
+    padding-block: 30px;
+    font-size: 17px;
+    color: #666;
+    border-bottom: 4px solid transparent;
+    transition: 200ms ease-in-out;
+    white-space: nowrap;
+}
+
+.features > .select > .buttons button:hover {
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+.features > .select > .buttons button[data-active="true"]{
+    border-bottom-color: var(--accent-color);
+    color: black;
+}
+
+@keyframes showing-up {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.features > .content {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    height: 420px;
+    animation: showing-up 500ms ease-in-out;
+}
+
+.features > .content > .image-container {
+    width: 50%;
+    position: relative;
+}
+
+.features > .content > .image-container::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    width: 100vw;
+    height: 350px;
+    z-index: -100;
+    right: 15%;
+    border-bottom-right-radius: 50vw;
+    border-top-right-radius: 50vw;
+    bottom: -25px;
+}
+
+.features > .content .image-container img {
+    margin-left: auto;
+}
+
+.features > .content > .text {
+    max-width: 440px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-30px);
+}
+
+@media (max-width: 1400px) and (min-width: 770px) {
+    .features > .content {
+        gap: 5vw;
+    }
+    .features > .content .text {
+        width: 50%;
+        transform: none;
+    }
+    .features > .content > .image-container::before {
+        width: 100vw;
+        height: 100%;
+        z-index: -100;
+        right: 15%;
+        border-bottom-right-radius: 50vw;
+        border-top-right-radius: 50vw;
+        top: 16%;
+    }
+}
+
+@media (max-width: 770px) {
+    .features > .select p {
+        width: 100%;
+    }     
+    .features > .select .buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .features > .select .buttons button {
+        width: 100%;
+        border-top: 1px solid #ddd;
+        border-bottom: none;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding-block: 19px;
+    }
+
+    .features > .select .buttons button::after {
+        background-color: transparent;
+        transition: 200ms ease-in-out;
+        height: 3px;
+        width: 50%;
+        content: "";
+        position: absolute;
+        bottom: 0;
+    }
+    
+    .features > .select .buttons button[data-active="true"]::after{
+        background-color: var(--accent-color);
+    }
+
+    .features > .content {
+        flex-direction: column;
+        max-width: 375px;
+        margin-inline: auto;
+    }
+
+    .features > .content .image-container {
+        width: 100%;
+    }
+
+    .features > .content .image-container img {
+        width: 100%;
+    }
+
+    .features > .content .text {
+        transform: none;
+        margin-top: 70px;
+        text-align: center;
+    }
+
+    .features > .content .text button {
+        display: none;
+    }
+
+    .features > .content > .image-container::before {
+        width: 100vw;
+        height: 100%;
+        max-height: 100%;
+        z-index: -100;
+        right: 15%;
+        border-bottom-right-radius: 50vw;
+        border-top-right-radius: 50vw;
+        top: 16%;
+    }
+}

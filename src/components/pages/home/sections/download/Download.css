@@ -1,0 +1,91 @@
+main.home > .download {
+    margin-bottom: 80px;
+}
+
+.download > .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.download > .content > p {
+    width: 50%;
+    text-align: center;
+    font-size: 19px;
+}
+
+.download > .content > .cards {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+.download > .content > .cards > .card {
+    flex-shrink: 1;
+    border-radius: 17px;
+    box-shadow: 0 8px 20px -12px var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 25px;
+    background-color: white;
+    height: min-content ;
+}
+
+.download > .content > .cards > .card:nth-child(2){ margin-top: 35px }
+.download > .content > .cards > .card:nth-child(3){ margin-top: 70px }
+
+.download > .content > .cards > .card > img {
+    margin-bottom: 10px;
+}
+
+.download > .content > .cards > .card > h3 {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.download > .content > .cards > .card > span {
+    color: var(--neutral-light);
+}
+
+.download > .content > .cards > .card > .spacer {
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+.download > .content > .cards > .card > button {
+    padding-inline: 35px;
+}
+
+@media (max-width: 1015px) and (min-width: 770px) {
+    .download > .content > .cards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .download > .content > .cards > .card {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 770px) {
+    main.home > .download {
+        margin-bottom: 40px;
+    }
+    .download > .content > p {
+        width: 100%;
+        font-size: unset;
+        text-wrap: balance;
+    }
+    .download > .content > .cards {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    .download > .content > .cards > .card {
+        margin-top: 0 !important;
+        box-shadow: 0 8px 20px -15px var(--main-color);
+    }
+}

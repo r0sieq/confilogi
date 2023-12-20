@@ -1,0 +1,49 @@
+main.home > .faq {
+    margin-top: 50px;
+    margin-bottom: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.faq > .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq > .content > p {
+    text-align: center;
+    width: 500px;
+}
+
+.faq > .questions {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #ccc;
+    width: 550px;
+}
+
+.faq > button {
+    margin-top: 10px;
+}
+
+@media (max-width: 770px){
+    main.home > .faq {
+        margin-top: 0px;
+    }
+    .faq > .content h2 {
+        text-align: center;
+    }
+    .faq > .content > p {
+        width: 100%;
+        text-wrap: pretty;
+    }
+    .faq > .questions {
+        border-top: none;
+        width: 100%;
+    }
+}
+
