@@ -18,31 +18,33 @@ export function DesktopHeader(){
     const [modalActive, setModalActive] = useState<boolean>(false);
     const [modalShown, setModalShown] = useState<boolean>(false);
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            if(modalShown) return;
-            setModalActive(true);
-        }, 30000)
-        return () => clearTimeout(timeout);
-    }, [])
-
-    function handleHover(){
+    function showModal(){
         if(modalShown) return;
-        setModalActive(true);
         setModalShown(true);
+        setModalActive(true);
     }
 
+    useEffect(() => {
+        const timeout = setTimeout(showModal, 5000)
+        return () => clearTimeout(timeout);
+    }, [modalShown])
+
+
+    console.log(modalShown)
+
     return (
-        <header className='desktop' onMouseOver={handleHover}>
-            <img src={logo} alt="Bookmark logo" />
-            <nav>
-                <TabLink to='/features'>FEATURES</TabLink>
-                <TabLink to='/pricing'>PRICING</TabLink>
-                <TabLink to='/contact'>CONTACT</TabLink>
-                <TabLink to='/login' className='special'>LOGIN</TabLink>
-            </nav>
+        <>
             {modalActive && <Modal setActive={setModalActive} />}
-        </header>
+            <header className='desktop' onMouseEnter={showModal}>
+                <img src={logo} alt="Bookmark logo" />
+                <nav>
+                    <TabLink to='/features'>FEATURES</TabLink>
+                    <TabLink to='/pricing'>PRICING</TabLink>
+                    <TabLink to='/contact'>CONTACT</TabLink>
+                    <TabLink to='/login' className='special'>LOGIN</TabLink>
+                </nav>
+            </header>
+        </>
     )
 }
 

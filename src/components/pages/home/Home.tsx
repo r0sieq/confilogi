@@ -1,4 +1,3 @@
-import { DeviceMode } from '../../../App';
 import './Home.css';
 import Download from './sections/download/Download';
 import Faq from './sections/faq/Faq';
