@@ -1,0 +1,128 @@
+body:has(#modal-container > .modal){
+    overflow: hidden;
+}
+
+#modal-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100dvh;
+    pointer-events: none;
+    opacity: 0;
+    backdrop-filter: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-container:has(.modal){
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    pointer-events: unset;
+    background-color: rgba(127, 127, 127, 0.5);
+}
+
+@keyframes modal-showing-up {
+    0% {
+        opacity: 0;
+        scale: 0;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+#modal-container > .modal {
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: modal-showing-up 300ms ease-in-out;
+}
+
+#modal-container > .modal > .top-bar {
+    background-color: var(--neutral-dark);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding-inline: 25px;
+    padding-block: 10px;
+    
+}
+
+#modal-container > .modal > .top-bar > .profile {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "picture name"
+        "picture description"
+    ;
+    gap: 20px;
+    row-gap: 0;
+}
+
+#modal-container > .modal > .top-bar > .profile > .picture {
+    grid-area: picture;
+    height: 35px;
+    width: 35px;
+    background-color: #aaaaaa80;
+    border-radius: 50%;
+}
+
+#modal-container > .modal > .top-bar > .profile > .name {
+    grid-area: name;
+    background-color: #ffffffaa;
+    height: 7px;
+    width: 150px;
+    border-radius: 5px;
+    margin-block: auto;
+}
+
+#modal-container > .modal > .top-bar > .profile > .description {
+    grid-area: description;
+    background-color: #aaaaaa80;
+    height: 7px;
+    width: 80px;
+    border-radius: 5px;
+    margin-block: auto;
+}
+
+#modal-container > .modal > .content {
+    box-sizing: border-box;
+    padding: 25px;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#modal-container > .modal > .content > .item {
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#modal-container > .modal > .top-bar > button {
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+}
+
+#modal-container > .modal > .top-bar > button > svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-container > .modal > .top-bar > button > svg > path {
+    will-change: fill;
+    transition: fill 200ms ease-in-out;
+}
+#modal-container > .modal > .top-bar > button:hover > svg > path { fill: var(--accent-color) }
